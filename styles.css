@@ -1,11 +1,20 @@
-h1 {
-    color: darkblue;
-    text-align: center;
+/*setting up styling for all elements*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
-h2 {
-    color: darkblue;
-    text-align: center;
+
+
+body{
+    
+    padding: 0%;
+    margin:0%;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
-#start {
-    color: darkblue;
+.container{
+    
 }
