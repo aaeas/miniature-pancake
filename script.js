@@ -90,15 +90,17 @@ function nextQuestion() {
     console.log(currentTitle);
     var btn1 = currentQuestion.choices[0];
     // Add Question object content to DOM(Browser Window) --> Document Object Model
+
     // Grab a reference to all our buttons and Question Title
     // These were added at the top of the file --> Done
     // Update the content with our question data
     console.log(question);
     question.textContent = currentTitle;
-    btn1.textContent = btn1
-    btn2.textContent = questions[1].choices[1];
-    btn3.textContent = questions[1].choices[2];
-    btn4.textContent = questions[1].choices[3];
+    btn2.textContent = questions[0].choices[1];
+    btn3.textContent = questions[0].choices[2];
+    btn4.textContent = questions[0].choices[3];
+
+
     // Update the DOM(the HTML page)
 }
 
