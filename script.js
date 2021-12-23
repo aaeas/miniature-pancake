@@ -41,6 +41,8 @@ var questions = [
 
 // Second we attach an EVENT LISTENER to the element
 startButton.addEventListener("click", startQuiz);
+nextBtnButton.addEventListener("click," nextQuestion);
+
 
 
 // Define our startQuiz method (function)
