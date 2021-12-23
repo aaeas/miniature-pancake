@@ -82,7 +82,7 @@ function nextQuestion() {
     // Above (in line 79) we have a static iterator
     // !!!! ***** What can we use to "change the index" value we grab from our data Array(?)   <-- ???
     // WE can use a counter to keep track of something --> var counter = ?;
-    // Question  --> How and when does the counter change?
+    // Question  --> How and when does the counter change?`
 
 
     // We can also pull out each piece of data from the object
