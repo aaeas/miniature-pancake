@@ -25,10 +25,7 @@ h1{
     padding: 10px;
     box-shadow: 0 0 10px 2px;
     justify-content: center;
-    align-items: center;
-    -moz-box-align: center;
 }
-
 
 .btn-styling{
     display:grid;
