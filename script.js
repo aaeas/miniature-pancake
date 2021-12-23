@@ -54,7 +54,7 @@ function startQuiz() {
     nextQuestion();    // <--- Calling/Invoking the function
 }
 
-h1El.textContent = "This is a question"
+//h1El.textContent = "This is a question"
 
 function startTimer() {   // What is the function of this method(?)
     console.log("Starting Timer ...")
