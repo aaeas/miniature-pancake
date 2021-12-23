@@ -4,10 +4,13 @@
     font-family: 'Courier New', Courier, monospace;
     
 }
+h1{
+    text-align: center;
+}
 /*styling for elements inside the body*/
 .body{
-    padding: 0%;
-    margin:0%;
+    padding: 10px;
+    margin:auto;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -16,12 +19,17 @@
 }
 .container{
     width: 800px;
-    max-width: 80%;
+    max-width: 40%;
     background-color:white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+    justify-content: center;
+    align-items: center;
+    -moz-box-align: center;
 }
+
+
 .btn-styling{
     display:grid;
     margin: 20px 0;

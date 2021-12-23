@@ -58,7 +58,7 @@ function startQuiz() {
 
 function startTimer() {   // What is the function of this method(?)
     console.log("Starting Timer ...")
-    var timeLeft = 100;
+    var timeLeft = 10;
     var timer = setInterval(function () {
         timeLeft = timeLeft - 1;
         console.log(timeLeft);
@@ -76,7 +76,7 @@ function startTimer() {   // What is the function of this method(?)
 function nextQuestion() {
     // Let's Grab our Question Object 
     // Create a variable to hold data --> Current Data (How do we grab this data)
-    var currentQuestion = questions[1];    // We grab the First object in the questions Array
+    var currentQuestion = questions[0];    // We grab the First object in the questions Array
     console.log(currentQuestion);
 
     // Above (in line 79) we have a static iterator
@@ -88,7 +88,7 @@ function nextQuestion() {
     // We can also pull out each piece of data from the object
     var currentTitle = currentQuestion.title;  // questions[0].title
     console.log(currentTitle);
-    var btn1 = currentQuestion.choices[0];
+
     // Add Question object content to DOM(Browser Window) --> Document Object Model
 
     // Grab a reference to all our buttons and Question Title
@@ -96,7 +96,10 @@ function nextQuestion() {
     // Update the content with our question data
     console.log(question);
     question.textContent = currentTitle;
+    btn1.textContent = questions[0].choices[0];
+    console.log("Button one is: ", btn1);
     btn2.textContent = questions[0].choices[1];
+    console.log("Button two is: ", btn2);
     btn3.textContent = questions[0].choices[2];
     btn4.textContent = questions[0].choices[3];
 
