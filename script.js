@@ -41,7 +41,8 @@ var questions = [
 
 // Second we attach an EVENT LISTENER to the element
 startButton.addEventListener("click", startQuiz);
-nextBtnButton.addEventListener("click," nextQuestion);
+
+//xnextButton.addEventListener("click", nextQuestion);
 
 
 
@@ -54,6 +55,45 @@ function startQuiz() {
     startTimer();
     // Present the First Question
     nextQuestion();    // <--- Calling/Invoking the function
+    // Defining what the function does
+    function nextQuestion() {
+        // Let's Grab our Question Object 
+        // Create a variable to hold data --> Current Data (How do we grab this data)
+        var currentQuestion = questions[0];    // We grab the First object in the questions Array
+        console.log(currentQuestion);
+
+        // Above (in line 79) we have a static iterator
+        // !!!! ***** What can we use to "change the index" value we grab from our data Array(?)   <-- ???
+        //(arr, fromIndex, toIndex)
+        //var questions = arr[fromIndex];
+        //arr.splice(fromIndex, 1);
+        // arr.splice(toIndex, 0, element);
+
+        // WE can use a counter to keep track of something --> var counter = ?;
+        // Question  --> How and when does the counter change?
+
+
+        // We can also pull out each piece of data from the object
+        var currentTitle = currentQuestion.title;  // questions[0].title
+        console.log(currentTitle);
+
+        // Add Question object content to DOM(Browser Window) --> Document Object Model
+
+        // Grab a reference to all our buttons and Question Title
+        // These were added at the top of the file --> Done
+        // Update the content with our question data
+        console.log(question);
+        question.textContent = currentTitle;
+        btn1.textContent = questions[0].choices[0];
+        console.log("Button one is: ", btn1);
+        btn2.textContent = questions[0].choices[1];
+        console.log("Button two is: ", btn2);
+        btn3.textContent = questions[0].choices[2];
+        btn4.textContent = questions[0].choices[3];
+
+
+        // Update the DOM(the HTML page)
+    }
 }
 
 //h1El.textContent = "This is a question"
@@ -74,39 +114,6 @@ function startTimer() {   // What is the function of this method(?)
     }, 1000);
 }
 
-// Defining what the function does
-function nextQuestion() {
-    // Let's Grab our Question Object 
-    // Create a variable to hold data --> Current Data (How do we grab this data)
-    var currentQuestion = questions[0];    // We grab the First object in the questions Array
-    console.log(currentQuestion);
 
-    // Above (in line 79) we have a static iterator
-    // !!!! ***** What can we use to "change the index" value we grab from our data Array(?)   <-- ???
-    // WE can use a counter to keep track of something --> var counter = ?;
-    // Question  --> How and when does the counter change?`
-
-
-    // We can also pull out each piece of data from the object
-    var currentTitle = currentQuestion.title;  // questions[0].title
-    console.log(currentTitle);
-
-    // Add Question object content to DOM(Browser Window) --> Document Object Model
-
-    // Grab a reference to all our buttons and Question Title
-    // These were added at the top of the file --> Done
-    // Update the content with our question data
-    console.log(question);
-    question.textContent = currentTitle;
-    btn1.textContent = questions[0].choices[0];
-    console.log("Button one is: ", btn1);
-    btn2.textContent = questions[0].choices[1];
-    console.log("Button two is: ", btn2);
-    btn3.textContent = questions[0].choices[2];
-    btn4.textContent = questions[0].choices[3];
-
-
-    // Update the DOM(the HTML page)
-}
 
 
