@@ -14,6 +14,8 @@
 <body>
     <!-- Container for questions-->
     <div class="container">
+        <h3 id="instructions"> Try to answer the following code-related questions within the time limit. Keep in
+            mind that incorrect answers will penalize your score/time by ten seconds!</h3>
         <div id="question-container" class="hide">
             <div id="question">Select the correct answer</div>
             <div id="answer-buttons" class="btn-styling">
@@ -24,11 +26,11 @@
             </div>
         </div>
         <!-- Start with the landing layout  -->
-        <h2 id="timer">Timer: 0</h2>
-        <button id="start" class="btn">Start Quiz</button>
-        <button id="next-btn" class="btn">Next</button>
-        <h3 id="instructions"> Try to answer the following code-related questions within the time limit. Keep in mind
-            that incorrect answers will penalize your score/time by ten seconds!</h3>
+        <div class="controls">
+            <h2 id="timer">Timer: 0</h2>
+            <button id="start" class="btn">Start Quiz</button>
+            <button id="next-btn" class="btn">Next</button>
+        </div>
     </div>
 
     <script src="./script.js"></script>

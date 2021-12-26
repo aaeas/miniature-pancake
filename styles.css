@@ -25,7 +25,6 @@ h1{
     padding: 10px;
     box-shadow: 0 0 10px 2px;
 }
-
 .btn-styling{
     display:grid;
     gap: 10px;
@@ -39,7 +38,6 @@ h1{
     color: white;
     outline: none;
 }
-
 .btn:hover {
     border-color: black;
 }
@@ -47,4 +45,16 @@ h1{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hide {
+    display: none;
+}
+h3 {
+    justify-content: center;
+    font-size: 16px;
 }
