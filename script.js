@@ -70,6 +70,7 @@ function startQuiz() {
         // arr.splice(toIndex, 0, element);
 
         // WE can use a counter to keep track of something --> var counter = ?;
+
         // Question  --> How and when does the counter change?
 
 
