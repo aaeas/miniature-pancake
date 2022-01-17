@@ -1,11 +1,17 @@
 /*setting up styling for all css*/
 * {
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
-    
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 h1{
     text-align: center;
+}
+h2{
+    text-align: right;
+}
+h3 {
+    text-align: left;
 }
 /*styling for elements inside the body*/
 .body{
@@ -17,14 +23,16 @@ h1{
     justify-content: center;
     align-items: center;
 }
-.container{
+/*.container{
     width: 800px;
     max-width: 40%;
     background-color:white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+    align-items: center;
 }
+*/
 .btn-styling{
     display:grid;
     gap: 10px;
@@ -41,7 +49,7 @@ h1{
 .btn:hover {
     border-color: black;
 }
-#start, #next-btn {
+#start {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -53,8 +61,4 @@ h1{
 }
 .hide {
     display: none;
-}
-h3 {
-    justify-content: center;
-    font-size: 16px;
 }

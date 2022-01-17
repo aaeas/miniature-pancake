@@ -1,15 +1,3 @@
-// First we GRAB a reference (the element on the HTML page)
-var startButton = document.getElementById("start");
-var time = document.getElementById("timer");
-var btn1 = document.querySelector(".btn1");
-var btn2 = document.querySelector(".btn2");
-var btn3 = document.querySelector(".btn3");
-var btn4 = document.querySelector(".btn4");
-var question = document.querySelector("#question");
-var answerButtons = document.querySelector("#answer-buttons");
-
-
-//quiz questions --> Beginning of using DATA (Database)  Arrays are zero indexed
 var questions = [
     // This is at index 0
     {
@@ -37,6 +25,66 @@ var questions = [
     }
 ]
 
+// First we GRAB a reference (the element on the HTML page)
+var startButton = document.getElementById("start");
+var time = document.getElementById("timer");
+var btn1 = document.querySelector(".btn1");
+var btn2 = document.querySelector(".btn2");
+var btn3 = document.querySelector(".btn3");
+var btn4 = document.querySelector(".btn4");
+var question = document.querySelector("#question");
+var answerButtons = document.querySelector("#answer-buttons");
+var container = document.getElementById("question-container");
+/*
+//  JSON obj vs js obj
+var jsonObj = { 
+    "key": "value",
+    "name": "ken",
+    "age": "24"
+}
+
+// Conversion of JSON object to JavaScript Obj
+// Parse and Stringify
+var test = jsObj.stringify();
+console.log(test);
+
+var jsObj = {
+    key: value,
+    name: "Ken",
+    age: 24
+}
+*/
+
+/*
+//quiz questions --> Beginning of using DATA (Database)  Arrays are zero indexed
+var questions = [
+    // This is at index 0
+    {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+    },
+    // This is at index 1
+    {
+        title: "The condition in an if / else statement is enclosed within ____.",
+        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        answer: "parentheses"
+    },
+    // This is at index 2
+    {
+        title: "String values must be enclosed within _______ when bekng assigned to variables.",
+        choices: ["commas", "curly brackes", "quotes", "parenthesis"],
+        answer: "curly brackets"
+    },
+    // This is at index 3
+    {
+        title: "Arrays in JavaSCript can be used to store_______. ",
+        choices: ["nummbers and strings", "other arrays", "booleans", "all the above"],
+        answer: "all the above"
+    }
+]
+*/
+
 // var startBtn = document.querySelector("#start");
 
 // Second we attach an EVENT LISTENER to the element
@@ -53,50 +101,53 @@ function startQuiz() {
 
     // We start a TIMER
     startTimer();
+
+    // We unhide the questions container
+    container.setAttribute("class", "");
     // Present the First Question
     nextQuestion();    // <--- Calling/Invoking the function
     // Defining what the function does
-    function nextQuestion() {
-        // Let's Grab our Question Object 
-        // Create a variable to hold data --> Current Data (How do we grab this data)
-        var currentQuestion = questions[0];    // We grab the First object in the questions Array
-        console.log(currentQuestion);
 
-        // Above (in line 79) we have a static iterator
-        // !!!! ***** What can we use to "change the index" value we grab from our data Array(?)   <-- ???
-        //(arr, fromIndex, toIndex)
-        //var questions = arr[fromIndex];
-        //arr.splice(fromIndex, 1);
-        // arr.splice(toIndex, 0, element);
-
-        // WE can use a counter to keep track of something --> var counter = ?;
-
-        // Question  --> How and when does the counter change?
-
-
-        // We can also pull out each piece of data from the object
-        var currentTitle = currentQuestion.title;  // questions[0].title
-        console.log(currentTitle);
-
-        // Add Question object content to DOM(Browser Window) --> Document Object Model
-
-        // Grab a reference to all our buttons and Question Title
-        // These were added at the top of the file --> Done
-        // Update the content with our question data
-        console.log(question);
-        question.textContent = currentTitle;
-        btn1.textContent = questions[0].choices[0];
-        console.log("Button one is: ", btn1);
-        btn2.textContent = questions[0].choices[1];
-        console.log("Button two is: ", btn2);
-        btn3.textContent = questions[0].choices[2];
-        btn4.textContent = questions[0].choices[3];
-
-
-        // Update the DOM(the HTML page)
-    }
 }
+function nextQuestion() {
+    // Let's Grab our Question Object 
+    // Create a variable to hold data --> Current Data (How do we grab this data)
+    var currentQuestion = questions[0];    // We grab the First object in the questions Array
+    console.log(currentQuestion);
 
+    // Above (in line 79) we have a static iterator
+    // !!!! ***** What can we use to "change the index" value we grab from our data Array(?)   <-- ???
+    //(arr, fromIndex, toIndex)
+    //var questions = arr[fromIndex];
+    //arr.splice(fromIndex, 1);
+    // arr.splice(toIndex, 0, element);
+
+    // WE can use a counter to keep track of something --> var counter = ?;
+
+    // Question  --> How and when does the counter change?
+
+
+    // We can also pull out each piece of data from the object
+    var currentTitle = currentQuestion.title;  // questions[0].title
+    console.log(currentTitle);
+
+    // Add Question object content to DOM(Browser Window) --> Document Object Model
+
+    // Grab a reference to all our buttons and Question Title
+    // These were added at the top of the file --> Done
+    // Update the content with our question data
+    console.log(question);
+    question.textContent = currentTitle;
+    btn1.textContent = questions[0].choices[0];
+    console.log("Button one is: ", btn1);
+    btn2.textContent = questions[0].choices[1];
+    console.log("Button two is: ", btn2);
+    btn3.textContent = questions[0].choices[2];
+    btn4.textContent = questions[0].choices[3];
+
+
+    // Update the DOM(the HTML page)
+}
 //h1El.textContent = "This is a question"
 
 function startTimer() {   // What is the function of this method(?)
@@ -113,8 +164,29 @@ function startTimer() {   // What is the function of this method(?)
             clearInterval(timer);
         }
     }, 1000);
+
 }
 
 
+// Check users selectio and compares to the answer
+function checkAnswer(choice) {
+    // We grab the users choice
 
+    // We grab the current questions answer
+    var ans = questions[0].ans;
+    // Compare (Conditional Statements)
 
+    // IF users choices is correct --> what happens?
+    if (choice == ans) {
+        // We add to SCORE
+        // Alert user that choice was correct
+    } else {
+        // IF users choice is incorrect
+        // We subtract from score (optional)
+        // Alert user that choice was Wrong
+        // We subtract time from the TIMER
+    }
+
+    // We move to the next question set --> HOW?
+    // we can probably call another function here ?
+}
