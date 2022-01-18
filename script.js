@@ -183,17 +183,17 @@ function displayTitleFour() {
 
 function endQuiz() {
 
-    clearInterval(timerInterval)
+    clearInterval(time)
     questionContainer.textContent = ''
-    optionsContainer.textContent = ''
+    container.textContent = ''
     questionContainer.textContent = 'Your Final Score Is: ' + score
 
     var input = document.createElement('input')
     input.setAttribute('placehold', 'What is your name?')
-    optionsContainer.append(input)
+    questionContainer.append(input)
     var submitBtn = document.createElement('button')
     submitBtn.textContent = 'Submit'
-    optionsContainer.append(submitBtn)
+    questionContainer.append(submitBtn)
 
     submitBtn.addEventListener('click', function () {
 
