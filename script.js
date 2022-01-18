@@ -170,7 +170,7 @@ function displayTitleFour() {
         choicesBtn.addEventListener('click', function (event) {
             if (event.target.id === quiz[3].answer) {
                 score += 20
-                console.log('corect');
+                console.log('correct');
             } else {
                 timer -= 10
                 console.log('incorrect');
