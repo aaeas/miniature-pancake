@@ -66,64 +66,123 @@ function startTimer() {   // What is the function of this method(?)
 
 }
 // Define our startQuiz method (function)
-function startQuiz() {
+function displayTitleOne() {
     // Define the logic of our game
     console.log("Button Clicked, Start Game ...");
     titleContainer.textContent = quiz[0].title
     for (var i = 0; i < quiz[0].options.length; i++) {
         var choicesBtn = document.ceatedElement('button')
-        optionsBtn
+        choicesBtn.setAttribute('id', quiz[1].choices[i])
+        choicesBtn.text.Content = quiz[1].options[i]
+        choicesContainer.append(choicesBtn)
+
+        optionBtn.addEventListener('click', function (event) {
+            if (event.target.id === quiz[0].answer) {
+                score += 20
+                console.log('corect');
+            } else {
+                timer -= 10
+                console.log('incorrect');
+            }
+            displayTitleTwo()
+
+        })
     }
-    // We start a TIMER
-    startTimer();
+    function displayTitleTwo() {
+        // Define the logic of our game
+        console.log("Button Clicked, Start Game ...");
+        titleContainer.textContent = quiz[0].title
+        for (var i = 0; i < quiz[0].options.length; i++) {
+            var choicesBtn = document.ceatedElement('button')
+            choicesBtn.setAttribute('id', quiz[1].choices[i])
+            choicesBtn.text.Content = quiz[1].options[i]
+            choicesContainer.append(choicesBtn)
 
-    // We unhide the questions container
-    container.setAttribute("class", "");
-    // Present the First Question
-    nextQuestion();
-    // Defining what the function does
+            optionBtn.addEventListener('click', function (event) {
+                if (event.target.id === quiz[0].answer) {
+                    score += 20
+                    console.log('corect');
+                } else {
+                    timer -= 10
+                    console.log('incorrect');
+                }
+                displayTitleThree()
 
-}
-function nextQuestion() {
+            })
+            function displayTitleThree() {
+                console.log("Button Clicked, Start Game ...");
+                titleContainer.textContent = quiz[0].title
+                for (var i = 0; i < quiz[0].options.length; i++) {
+                    var choicesBtn = document.ceatedElement('button')
+                    choicesBtn.setAttribute('id', quiz[1].choices[i])
+                    choicesBtn.text.Content = quiz[1].options[i]
+                    choicesContainer.append(choicesBtn)
 
-    var currentQuestion = questions[0];    // We grab the First object in the questions Array
-    console.log(currentQuestion);
+                    optionBtn.addEventListener('click', function (event) {
+                        if (event.target.id === quiz[0].answer) {
+                            score += 20
+                            console.log('corect');
+                        } else {
+                            timer -= 10
+                            console.log('incorrect');
+                        }
+                        displayTitleFour()
+
+                    })
+                    function displayTitleFour() {
+                        console.log("Button Clicked, Start Game ...");
+                        titleContainer.textContent = quiz[0].title
+                        for (var i = 0; i < quiz[0].options.length; i++) {
+                            var choicesBtn = document.ceatedElement('button')
+                            choicesBtn.setAttribute('id', quiz[1].choices[i])
+                            choicesBtn.text.Content = quiz[1].options[i]
+                            choicesContainer.append(choicesBtn)
+
+                            optionBtn.addEventListener('click', function (event) {
+                                if (event.target.id === quiz[0].answer) {
+                                    score += 20
+                                    console.log('corect');
+                                } else {
+                                    timer -= 10
+                                    console.log('incorrect');
+                                }
+                                endQuiz()
+
+                            })
+
+                            function endQuiz() {
+
+                                clearInterval(timerInterval)
+                                questionContainer.textContent = ''
+                                optionsContainer.textContent = ''
+                                questionContainer.textContent = 'Your Final Score Is: ' + score
 
 
-    // We can also pull out each piece of data from the object
-    var currentTitle = currentQuestion.title;  // questions[0].title
-    console.log(currentTitle);
 
-    // Add Question object content to DOM(Browser Window) --> Document Object Model
-
-
-
-
-
-}
+                                var input = document.createElement('input')
+                                input.setAttribute('placehold', 'What is your name?')
+                                optionsContainer.append(input)
+                                var submitBtn = document.createElement('button')
+                                submitBtn.textContent = 'Submit'
+                                optionsContainer.append(submitBtn)
 
 
-}
+
+                                submitBtn.addEventListener('click', function () {
+
+                                    var storage = JSON.parse(localStorage.getItem('highscore'))
+
+                                    if (storage === null) {
+                                        storage = []
+                                    }
+                                    var user = {
+                                        name: input.value,
+                                        currentScore: score
+                                    }
+                                    console.log(user)
+                                    storage.push(user)
+                                    localStorage.setItem('highscore', JSON.stringify(storage))
+                                })
 
 
-// Check users selectio and compares to the answer
-function checkAnswer(choice) {
-    // We grab the users choice
 
-    // We grab the current questions answer
-    var ans = questions[0].ans;
-    // Compare (Conditional Statements)
-
-    // IF users choices is correct --> what happens?
-    if (choice == ans) {
-        // We add to SCORE
-        // Alert user that choice was correct
-    } else {
-        // IF users choice is incorrect
-        // We subtract from score (optional)
-        // Alert user that choice was Wrong
-        // We subtract time from the TIMER
-    }
-
-
-}
