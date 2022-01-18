@@ -23,16 +23,9 @@ h3 {
     justify-content: center;
     align-items: center;
 }
-/*.container{
-    width: 800px;
-    max-width: 40%;
-    background-color:white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
-    align-items: center;
-}
-*/
+.hidden {
+    display: none
+  }
 .btn-styling{
     display:grid;
     gap: 10px;
