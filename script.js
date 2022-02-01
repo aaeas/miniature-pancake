@@ -27,7 +27,7 @@ var quiz = [
 
 var timer = 60
 var score = 0
-
+var counter;
 // First we GRAB a reference (the element on the HTML page)
 var startBtn = document.getElementById("start");
 var questionContainer = document.getElementById('question-container');
@@ -35,7 +35,8 @@ var time = document.getElementById("timer");
 var question = document.querySelector("#question");
 var answerButtons = document.querySelector("#answer-buttons");
 var container = document.getElementById("question-container");
-
+var displayHighScore = document.getElementById("viewhighscores");
+var scores = document.querySelector(".scores");
 
 // Second we attach an EVENT LISTENER to the element
 startBtn.addEventListener('click', function () {
@@ -54,7 +55,7 @@ function displayTime(timeRemaining) {
 function startTimer() {   // What is the function of this method(?)
     console.log("Starting Timer ...")
     var timeLeft = 60;
-    var counter = setInterval(function () {
+    counter = setInterval(function () {
         timeLeft = timeLeft - 1;
         console.log(timeLeft);
         // Updating the data on the HTML page
@@ -183,7 +184,8 @@ function displayTitleFour() {
 
 function endQuiz() {
 
-    clearInterval(time)
+    clearInterval(counter);
+    time.textContent = "0";
     questionContainer.textContent = ''
     container.textContent = ''
     questionContainer.textContent = 'Your Final Score Is: ' + score
@@ -207,6 +209,39 @@ function endQuiz() {
         }
         console.log(user)
         storage.push(user)
-        localStorage.setItem('highscore', JSON.stringify(storage))
+        localStorage.setItem('highscore', JSON.stringify(storage));
+        // call for highscores
+        displayHighScore();
     });
+
+    function displayHighScore() {
+        // Create div container 
+        // submitBtn.innerHTML = "";
+        // We are grabbing the data in LocalStorage with the key of 'highscore'
+        var storedData = JSON.parse(localStorage.getItem('highscore'));
+        console.log(storedData);    //  --> [{name, currentScore}, {name, currentScore}, {}]
+        // localStorage.setItem('highscore', JSON.stringify(storage))
+        // if (storage === null) {
+        //     storage = []
+        // }
+
+        for (let i = 0; i < storedData.length; i++) {
+            console.log(storedData[i]);
+            // dynamically create highscore items on the DOM
+            var nextScore = storedData[i].currentScore;
+            var nextUser = storedData[i].name;
+            console.log(nextUser, nextScore);
+
+            var newContainer = document.createElement("div");
+            var newUserLabel = document.createElement("h3");
+            newUserLabel.textContent = nextUser;
+            var newUserScore = document.createElement("h3");
+            newUserScore.textContent = nextScore;
+
+            newContainer.append(newUserLabel);
+            newContainer.append(newUserScore);
+            scores.append(newContainer);
+        }
+
+    }
 }
