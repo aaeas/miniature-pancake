@@ -54,13 +54,12 @@ function displayTime(timeRemaining) {
 
 function startTimer() {   // What is the function of this method(?)
     console.log("Starting Timer ...")
-    var timeLeft = 60;
     counter = setInterval(function () {
-        timeLeft = timeLeft - 1;
-        console.log(timeLeft);
+        timer = timer - 1;
+        console.log(timer);
         // Updating the data on the HTML page
-        time.textContent = "Timer: " + timeLeft
-        if (timeLeft <= 0) {
+        time.textContent = "Timer: " + timer
+        if (timer <= 0) {
             console.log("Timer Ended");
             // Clear (End/Stop) Our Timer
             clearInterval(counter);
